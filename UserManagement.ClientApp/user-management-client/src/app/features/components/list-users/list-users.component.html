@@ -1,0 +1,29 @@
+<h2>Users List</h2>
+
+<div class="container">
+    <div class="row bg-dark">
+        <div class="col text-left text-white">
+            <h2>UserName</h2>
+        </div>
+        <div class="col text-left  text-white">
+            <h2>Name</h2>
+        </div>
+    </div>
+    <div *ngFor="let user of users">
+        <div class="row border border-light">
+
+            <div class="col-1" *ngIf="user.imageData">
+                <img class="avatar" [src]="'data:image/jpg;base64,'+user.imageData" />
+            </div>
+            <div class="col-1" *ngIf="!user.imageData">
+                <img class="avatar" [src]="'assets/img/default-image.png'" />
+            </div>
+
+            <div class="col col-text">{{user.userName}}</div>
+            <div class="col col-text">{{user.firstName + " " + user.lastName}}</div>
+        </div>        
+    </div>
+    <div>
+        <a class="user-link" [routerLink]="['/create-user-wizard']">Create User Wizard </a>
+    </div>
+</div>

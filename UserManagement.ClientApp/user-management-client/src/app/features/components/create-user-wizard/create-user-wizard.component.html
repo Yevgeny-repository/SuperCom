@@ -1,0 +1,94 @@
+<h1>Create User Wizard</h1>
+<div class="container">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col">
+                <div class="col">
+                    <h2>Profile</h2>
+                </div>
+            </div>
+            <div class="col">
+                <h2>Avatar</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <label class="label-input" for="firstName">First Name </label>
+                        <input type="text" id="firstName" name="firstName" formControlName="firstName" required>
+                        <span class="text-danger"
+                            *ngIf="(userForm.controls['firstName'].touched || submitted) && userForm.controls['firstName'].errors?.required">
+                            First Name is required
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="label-input" for="lastName">Last Name </label>
+                        <input type="text" id="lastName" name="lastName" formControlName="lastName" required>
+                        <span class="text-danger"
+                        *ngIf="(userForm.controls['lastName'].touched || submitted) && userForm.controls['lastName'].errors?.required">
+                        Last Name is required
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="label-input" for="userName">User Name </label>
+                        <input type="text" id="userName" name="userName" formControlName="userName" required>
+                        <span class="text-danger"
+                        *ngIf="(userForm.controls['userName'].touched || submitted) && userForm.controls['userName'].errors?.required">
+                        User Name is required
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="label-input" for="timeZone">TimeZone </label>
+                        <input type="text" id="timeZone" name="timeZone" formControlName="timeZone">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="label-input" for="webSite">WebSite </label>
+                        <input type="text" id="webSite" name="webSite" formControlName="webSite">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="label-input" for="phoneSkype">PhoneSkype </label>
+                        <input type="text" id="phoneSkype" name="phoneSkype" formControlName="phoneSkype">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="label-input" for="about">About </label>
+                        <input type="text" id="about" name="about" formControlName="about">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <button type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <img [src]="imageUrl" style="width:250px;height:200px">
+                <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
+            </div>
+        </div>
+        <div>
+            <a class="user-link" [routerLink]="['/list-users']">Back to users list screen </a>
+        </div>
+      </form>
+</div>
+<ngx-notifier></ngx-notifier>
